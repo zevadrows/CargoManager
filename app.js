@@ -6,25 +6,22 @@ var usuarios = [];
 
 
 
-document.getElementById("btnCadastrarUsuario").addEventListener("click", function () {
-    var usuario = [
-    usuario.nome = document.getElementById("nomeUsuario"),
-    usuario.sobrenome = document.getElementById("sobrenomeUsuario"),
-    usuario.cpf = document.getElementById("cpf"),
-    usuario.cnh = document.getElementById("cnh"),
-    usuario.dataNascimento = document.getElementById("dataNascimento"),
-    usuario.enderecoUsuario = document.getElementById("enderecoUsuario"),
-    usuario.numeroEndereco = document.getElementById("numeroEndereco"),
-    usuario.complementoEndereco = document.getElementById("complementoEndereco"),
-    usuario.emailUsuario = document.getElementById("emailUsuario"),
-    usuario.celularUsuario = document.getElementById("celularUsuario")
-    ]
-    usuarios.push(usuario);
-    localStorage.setItem('usuarios', usuarios);
+$('#cadastroUsuario').submit(function () {
+    var usuario = {
+        nome: document.getElementById("nomeUsuario"),
+        sobrenome: document.getElementById("sobrenomeUsuario"),
+        cpf: document.getElementById("cpf"),
+        cnh: document.getElementById("cnh"),
+        dataNascimento: document.getElementById("dataNascimento"),
+        enderecoUsuario: document.getElementById("enderecoUsuario"),
+        numeroEndereco: document.getElementById("numeroEndereco"),
+        complementoEndereco: document.getElementById("complementoEndereco"),
+        emailUsuario: document.getElementById("emailUsuario"),
+        celularUsuario: document.getElementById("celularUsuario")
+    }
+    localStorage.setItem('user', usuario);
+    usuarios.push(localStorage.getItem('user'));
 
-    console.log(usuarios[0]);
+    return false;
 });
-
-
-
 
