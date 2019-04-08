@@ -5,7 +5,7 @@
 var usuarios = [];
 var veiculos = [];
 
-
+var selectMotorista = document.getElementById("motoristas");
 
 $('#cadastroUsuario').submit(function () {
     var usuario = {
@@ -20,9 +20,12 @@ $('#cadastroUsuario').submit(function () {
         emailUsuario: document.getElementById("emailUsuario").value,
         celularUsuario: document.getElementById("celularUsuario").value
     }
+
     usuarios.push(usuario);
+    atualizarOpcoes();
+
     document.getElementById("cadastroUsuario").reset();
-    
+
     return false;
 });
 
@@ -36,10 +39,27 @@ $('#cadastroVeiculo').submit(function () {
         anoCompra: document.getElementById("anoCompra").value,
         cargaMaxima: document.getElementById("cargaMaxima").value,
         numeroEixos: document.getElementById("numeroEixos").value,
-        comprimentoTotal: document.getElementById("comprimentoTotal").value        
+        comprimentoTotal: document.getElementById("comprimentoTotal").value
     }
     veiculos.push(veiculo);
+    atualizarOpcoes();
     document.getElementById("cadastroVeiculo").reset();
-    
+
     return false;
 });
+
+function atualizarOpcoes() {
+    document.getElementById("motoristas").innerHTML = "";
+    document.getElementById("veiculos").innerHTML = "";
+    for (i in usuarios) {
+        document.getElementById("motoristas").innerHTML += '<option value="" >' + usuarios[i].nome + '</option>';
+    }
+    for (i in veiculos) {
+        document.getElementById("veiculos").innerHTML += '<option value="" >' + veiculos[i].placa + '</option>';
+    }
+
+}
+
+
+//cadastro agendamento
+//opções de motorista
