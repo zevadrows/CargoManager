@@ -15,7 +15,7 @@
     <title>Cargo Manager</title>
 </head>
 
-<body>
+<body class="bg-light">
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
@@ -28,32 +28,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
+                            <a class="nav-link"
+                                href="https://github.com/zevadrows/CargoManager/tree/devTest2">GitHub</a>
+                        </li>    
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+
                 </div>
             </div>
         </nav>
@@ -171,53 +154,55 @@
     <div class="container">
         <hr>
     </div>
+
     <div class="container">
         <h1>Listagem de Agendamentos</h1>
-
-        <div class="form-row">
-            <div class="form-group mr-4">
-                <label>Motorista</label>
-                <select class="form-control" id="motoristas">
-                    <option value="" disabled selected>Selecionar</option>
-                </select>
+        <form id="listagemAgendamento">
+            <div class="form-row">
+                <div class="form-group mr-4">
+                    <label>Motorista</label>
+                    <select class="form-control" id="motoristas">
+                        <option value="" disabled selected>Selecionar</option>
+                    </select>
+                </div>
+                <div class="form-group mr-4">
+                    <label>Veículo</label>
+                    <select class="form-control" id="veiculos">
+                        <option value="" disabled selected>Selecionar</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group mr-4">
-                <label>Veículo</label>
-                <select class="form-control" id="veiculos">
-                    <option value="" disabled selected>Selecionar</option>
-                </select>
+            <div class="form-row">
+                <div class="form-group col-4 col-md-3">
+                    <label>Data de Entrada</label>
+                    <input id="dataEntrada" type="date" class="form-control">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-4 col-md-3">
-                <label>Data de Entrada</label>
-                <input id="dataEntrada" type="date" class="form-control">
+            <div class="form-row">
+                <div class="form-group col-4 col-md-3">
+                    <label>Data de Saída</label>
+                    <input id="dataSaida" type="date" class="form-control">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-4 col-md-3">
-                <label>Data de Saída</label>
-                <input id="dataSaida" type="date" class="form-control">
+            <div class="form-row">
+                <div class="form-group mr-4">
+                    <label>Operação</label>
+                    <select class="form-control" id="operacao">
+                        <option value="Carga">Carga</option>
+                        <option value="Descarga">Descarga</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group mr-4">
-                <label>Operação</label>
-                <select class="form-control" id="operacao">
-                    <option value="Carga">Carga</option>
-                    <option value="Descarga">Descarga</option>
-                </select>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-success">Agendar!</button>
+            <button type="submit" class="btn btn-success">Agendar!</button>
+        </form>
     </div>
 
     <div class="container">
         <hr>
     </div>
 
-    <div class="container">
-        <table class="table">
+    <div class="container mb-5">
+        <table id="tabelaAgendamento" class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -228,25 +213,8 @@
                     <th scope="col">Operação</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            <tbody id="bodyAgendamento">
+
             </tbody>
         </table>
     </div>

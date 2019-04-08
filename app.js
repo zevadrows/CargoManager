@@ -3,7 +3,7 @@
 
 
 var usuarios = [];
-var veiculos = [];
+
 
 var selectMotorista = document.getElementById("motoristas");
 
@@ -30,6 +30,7 @@ $('#cadastroUsuario').submit(function () {
 });
 
 //cadastro veículo
+var veiculos = [];
 
 $('#cadastroVeiculo').submit(function () {
     var veiculo = {
@@ -52,14 +53,45 @@ function atualizarOpcoes() {
     document.getElementById("motoristas").innerHTML = "";
     document.getElementById("veiculos").innerHTML = "";
     for (i in usuarios) {
-        document.getElementById("motoristas").innerHTML += '<option value="" >' + usuarios[i].nome + '</option>';
+        document.getElementById("motoristas").innerHTML += '<option value="' + usuarios[i].nome + '" >' + usuarios[i].nome + '</option>';
     }
     for (i in veiculos) {
-        document.getElementById("veiculos").innerHTML += '<option value="" >' + veiculos[i].placa + '</option>';
+        document.getElementById("veiculos").innerHTML += '<option value="' + veiculos[i].placa + '" >' + veiculos[i].placa + '</option>';
     }
 
 }
 
 
 //cadastro agendamento
-//opções de motorista
+var agendamentos = [];
+$('#listagemAgendamento').submit(function () {
+    var agendamento = {
+        motorista: document.getElementById("motoristas").value,
+        veiculo: document.getElementById("veiculos").value,
+        dataEntrada: document.getElementById("dataEntrada").value,
+        dataSaida: document.getElementById("dataSaida").value,
+        operacao: document.getElementById("operacao").value,
+    }
+    agendamentos.push(agendamento);
+    agendar();
+    document.getElementById("listagemAgendamento").reset();
+
+    return false;
+});
+
+function agendar() {
+    document.getElementById("bodyAgendamento").innerHTML = "";
+    var n = 0;
+    for (i in agendamentos) {
+        n++;
+        document.getElementById("bodyAgendamento").innerHTML +=
+            '<tr>'
+            + '<th scope="row">' + n + '</th>'
+            + '<td value="' + agendamentos[i].motorista + '">' + agendamentos[i].motorista + '</td>'
+            + '<td value="' + agendamentos[i].veiculo + '">' + agendamentos[i].veiculo + '</td>'
+            + '<td>' + agendamentos[i].dataEntrada + '</td>'
+            + '<td>' + agendamentos[i].dataSaida + '</td>'
+            + '<td>' + agendamentos[i].operacao + '</td>'
+            + '</tr>';
+    }
+}
