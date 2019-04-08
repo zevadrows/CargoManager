@@ -7,6 +7,7 @@ hr {
 }
 input[type="date"] {
     max-width: 180px;
+    min-width: 180px;
 }
 #cargaMaxima {
     max-width: 100px;

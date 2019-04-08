@@ -95,6 +95,8 @@
                     <label>Nº</label>
                     <input type="text" class="form-control" id="numeroEndereco" placeholder="Ex: 123">
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-3">
                     <label>Complemento</label>
                     <input type="text" class="form-control" id="complemento" placeholder="Ex: Bloco B Apto 22">
@@ -147,6 +149,8 @@
                     <label>Carga Máxima Suportada (Kg)</label>
                     <input type="number" class="form-control" id="cargaMaxima" placeholder="1300,00">
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group">
                     <label>Nº de Eixos</label>
                     <input type="number" class="form-control" id="numeroEixos" placeholder="Ex: 2">
@@ -162,6 +166,49 @@
         </form>
     </div>
 
+    <div class="container">
+        <hr>
+    </div>
+    <div class="container">
+        <h1>Listagem de Agendamentos</h1>
+
+        <div class="form-row">
+            <div class="form-group mr-4">
+                <label>Motorista</label>
+                <select class="form-control" id="motoristas">
+                    <option value="" disabled selected>Selecionar</option>
+                </select>
+            </div>
+            <div class="form-group mr-4">
+                <label>Veículo</label>
+                <select class="form-control" id="veiculos">
+                    <option value="" disabled selected>Selecionar</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-4 col-md-3">
+                <label>Data de Entrada</label>
+                <input id="dataEntrada" type="date" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-4 col-md-3">
+                <label>Data de Saída</label>
+                <input id="dataSaida" type="date" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group mr-4">
+                <label>Operação</label>
+                <select class="form-control" id="operacao">
+                    <option value="Carga">Carga</option>
+                    <option value="Descarga">Descarga</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
